@@ -1,15 +1,3 @@
-function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
 const phrases = [
   "haggard youths languish",
   "hallowed years last",
@@ -109,7 +97,7 @@ const phrases = [
   "his yearning lasted",
   "his years lapsed",
   "his yellowed letter",
-  "his yellowing leaves",
+  "hazel yellowing leaves",
   "his yodeling lulled",
   "his youngest leapt",
   "his youngest loved",

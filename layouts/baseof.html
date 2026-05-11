@@ -23,5 +23,6 @@
   <footer></footer>
   <script type="module" src="/js/main.js"></script>
   {{ with .Params.pagejsfile }}<script src="{{ . }}"></script>{{ end }}
+  {{ with .Params.pagejs }}<script>{{ . | safeJS }}</script>{{ end }}
 </body>
 </html>
