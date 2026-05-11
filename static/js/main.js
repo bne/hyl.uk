@@ -270,11 +270,15 @@ function runTile(tile, finalChar, totalCycles) {
 
 const phrase = phrases[Math.floor(Math.random() * phrases.length)]
 const h1 = document.querySelector('h1')
+const boldSecond = Math.random() < 0.5
 
+let wordIndex = 0
 phrase.split('').forEach((char, i) => {
-  const tile = document.createElement('span')
   const isSpace = char === ' '
-  tile.className = isSpace ? 'tile tile--space' : 'tile'
+  if (isSpace) wordIndex++
+  const tile = document.createElement('span')
+  const isBold = !isSpace && (boldSecond ? wordIndex === 1 : wordIndex === 0 || wordIndex === 2)
+  tile.className = isSpace ? 'tile tile--space' : isBold ? 'tile tile--bold' : 'tile'
   tile.textContent = isSpace ? '\u00A0' : randomChar()
   h1.appendChild(tile)
 

@@ -20,4 +20,4 @@ Output is written to `public/`.
 
 ## Deployment
 
-Pushing to `main` deploys automatically via GitHub Actions.
+Pushing to `build` deploys automatically via GitHub Actions.

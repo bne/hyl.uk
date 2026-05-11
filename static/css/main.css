@@ -5,7 +5,8 @@
 }
 
 :root {
-  font-family: system-ui, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
   line-height: 1.5;
 }
 
@@ -21,7 +22,7 @@ main {
 }
 
 header {
-  background: #111;
+  background: #222222;
   padding: .1rem .25rem;
   display: flex;
   justify-content: left;
@@ -30,7 +31,7 @@ header {
 h1 {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 0;
   margin: 0;
   perspective: 500px;
 }
@@ -57,36 +58,26 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.2rem;
   height: 3rem;
-  background: #fff;
-  color: #1c1c1c;
-  font-family: 'Courier New', Courier, monospace;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
   font-size: 1.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 3px;
+  font-weight: 300;
+  text-transform: lowercase;
   position: relative;
   overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: #000;
-    pointer-events: none;
-  }
 
   &.is-flipping {
     animation: flip 80ms linear;
   }
 
+  &.tile--bold {
+    font-weight: 800;
+  }
+
   &.tile--space {
     background: transparent;
-    width: .5rem;
+    width: .0;
 
     &::after {
       display: none;
