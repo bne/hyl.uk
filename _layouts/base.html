@@ -1,0 +1,29 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      {% if page.title %}{{ page.title }}{% endif %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <style>
+      {% if page.extra_css %}
+        {{ page.extra_css }}
+      {% endif %}
+    </style>
+    {% if page.extra_head %}
+      {{ page.extra_head }}
+    {% endif %}
+  </head>
+  <body>
+    {{ content }}
+    <script src="/static/js/main.js"></script>
+    {% if page.extra_js %}
+      {{ page.extra_js }}
+    {% endif %}
+  </body>
+</html>

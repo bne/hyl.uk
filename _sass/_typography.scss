@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+html {
+  font-size: 18px;
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  html {
+    font-size: calc(18px + 16 * ((100vw - $breakpoint-lg) / 680));
+  }
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 4rem;
+  color: #222222;
+  margin: 1rem 0;
+}
+
+a {
+  color: black;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ul {
+  padding: 0.5rem;
+
+  li {
+    list-style: none;
+  }
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

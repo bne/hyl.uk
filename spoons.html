@@ -1,0 +1,102 @@
+---
+layout: base
+title: spoons
+extra_css: >
+  #content {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: 0 auto;
+    padding-top: 3em;
+  }
+  @media screen and (max-width: 1440px) {
+    #content {
+      padding-top: 0;
+      max-width: 90%;
+    }
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  section {
+    margin-bottom: 4em;
+  }
+  .split-content {
+    display: flex;
+    gap: 2em;
+  }
+  .split-content-text {
+    flex: 1 0;
+  }
+  @media screen and (max-width: 425px) {
+    .split-content {
+      flex-direction: column;
+    }
+  }
+  .gmap_canvas {
+    overflow: hidden;
+    background: none!important;
+    height: 300px;
+    width: 550px;
+  }
+extra_head: >
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/ico/favicon-16x16.png">
+  <link rel="manifest" href="/static/ico/site.webmanifest">
+  <link rel="mask-icon" href="/static/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/static/ico/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/static/ico/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+---
+
+<div id="content">
+  <section id="intro">
+    <div class="split-content">
+      <img src="/static/img/tools.png" alt="Tools" />
+      <div class="split-content-text">
+        <h1>spoon club</h1>
+        <h2>Come and whittle at Rowntree Park</h2>
+        <p>Join us at the story circle on the last Sunday of the month from 10:30am</p>
+        <p>Experience preferable, but not essential</p>
+        <p>A supply of green wood will be available, but feel free to bring along a log and your own tools</p>
+        <a href="mailto:spoons@hyl.uk">spoons@hyl.uk</a>
+      </div>
+    </div>
+  </section>
+  <section id="where">
+    <div class="split-content">
+      <div class="split-content-text">
+        <h2>Where?</h2>
+        <p>The Story Circle at Rowntree Park<br />York, YO23 1JZ</p>
+        <p><a href="https://rowntreepark.org.uk/" target="_blank">Information on Rowntree Park</a></p>
+        <p><a href="https://www.york.gov.uk/directory-record/431/rowntree-park-car-park" target="_blank">Information on parking</a></p>
+      </div>
+      <iframe width="550" height="300" id="gmap_canvas"
+        src="https://maps.google.com/maps?q=53%C2%B056'48.0%22N%201%C2%B004'56.1%22W&t=k&z=17&ie=UTF8&iwloc=&output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+  </section>
+  <section id="when">
+    <h2>When?</h2>
+    <p>The last Sunday of every month from 11am till 2pm</p>
+    <p>These times may change come summer when we can sit out in the evening, check back here for updates</p>
+  </section>
+  <section id="how-much">
+    <h2>How much?</h2>
+    <p>&pound;5.00 per person. This covers site hire, wood to carve and some top quality biscuits</p>
+  </section>
+  <section id="tools">
+    <h2>Tools</h2>
+    <p>A couple of chopping blocks will be available, but bring your own edge tools</p>
+    <p>If you're just starting out, to carve a spoon you will need an axe, a straight knife and a curved knife for the bowl</p>
+    <p>
+      <a href="https://wood-tools.co.uk/shop/" target="_blank">Woodtools</a> do a good starter kit including a Robin Wood axe, alternatively you can
+      <a href="http://www.wrigley.me.uk/2020/11/04/how-to-reprofile-an-axe-using-simple-hand-tools/" target="_blank">sharpen a bog standard hatchet</a>
+    </p>
+  </section>
+</div>
