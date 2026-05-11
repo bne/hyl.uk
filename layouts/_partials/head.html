@@ -9,5 +9,4 @@
   <link rel="stylesheet" href="/css/main.css" />
   {{ with .Params.pagecss }}<style>{{ . | safeCSS }}</style>{{ end }}
   {{ with .Params.pagecssfile }}<link rel="stylesheet" href="{{ . }}" />{{ end }}
-  {{ with .Params.pagejsfile }}<script src="{{ . }}"></script>{{ end }}
 </head>

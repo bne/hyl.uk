@@ -5,7 +5,7 @@
 }
 
 :root {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 300;
   line-height: 1.5;
 }
@@ -147,7 +147,7 @@ h1 {
   justify-content: center;
   height: 3rem;
   color: #fff;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.8rem;
   font-weight: 300;
   text-transform: lowercase;
@@ -164,7 +164,7 @@ h1 {
 
   &.tile--space {
     background: transparent;
-    width: .0;
+    width: 0.0;
 
     &::after {
       display: none;
