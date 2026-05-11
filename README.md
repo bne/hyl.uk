@@ -1,3 +1,1 @@
-# hyl.uk
-
-hotel yankee lima
+# Hotel Yankee Lima
