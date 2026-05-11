@@ -1,3 +1,8 @@
 baseURL = 'https://hyl.uk/'
 languageCode = 'en-gb'
 title = 'hyl.uk'
+
+[[menus.main]]
+name = 'talk'
+url = 'mailto:hello@hyl.uk'
+weight = 1
