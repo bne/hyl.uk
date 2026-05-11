@@ -10,9 +10,14 @@ weight = 1
 [[menus.main]]
 name = 'words'
 url = '/words/'
-weight = 1
+weight = 2
+
+[[menus.main]]
+name = 'buggle'
+url = '/buggle/'
+weight = 3
 
 [[menus.main]]
 name = 'talk'
 url = 'mailto:hello@hyl.uk'
-weight = 3
+weight = 4
