@@ -24,7 +24,8 @@ async function initPhrases(sheetsUrl) {
       wordContainer.setAttribute('class', 'word');
       phraseContainer.appendChild(wordContainer);
     });
-    phraseContainer.style.left = (document.body.clientWidth / 2) - (phraseContainer.clientWidth / 2) + 'px'
+    phraseContainer.style.left = (document.body.clientWidth / 2) - (phraseContainer.clientWidth / 2) + 'px';
+    phraseContainer.style.top = -(phraseContainer.clientHeight + 10) + 'px';
   });
   animatePhrase();
 }
@@ -37,6 +38,8 @@ function animatePhrase() {
   const words = phrase.querySelectorAll('.word');
   const duration = randomInt(6000, 8000);
 
+  const startOffset = Math.abs(parseInt(phrase.style.top));
+
   words.forEach((word, j) => {
     const direction = randomInt(-20, 20) + 1;
     const bounceHeight = randomInt(25, 75);
@@ -44,7 +47,7 @@ function animatePhrase() {
     const animation = word.animate(
       [
         { transform: 'translateY(0)' },
-        { transform: 'translate(0, 100vh)', opacity: 1 },
+        { transform: `translate(0, calc(100vh + ${startOffset}px - ${word.offsetHeight}px))`, opacity: 1 },
         { transform: `translate(${direction}vw, ${bounceHeight}vh) rotate(${direction * 100}deg)`, opacity: 0 },
       ],
       {
