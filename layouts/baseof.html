@@ -22,5 +22,6 @@
   <main>{{ block "main" . }}{{ end }}</main>
   <footer></footer>
   <script type="module" src="/js/main.js"></script>
+  {{ with .Params.pagejs }}<script>{{ . | safeJS }}</script>{{ end }}
 </body>
 </html>

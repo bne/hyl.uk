@@ -3,6 +3,16 @@ languageCode = 'en-gb'
 title = 'hyl.uk'
 
 [[menus.main]]
+name = 'oak'
+url = '/oak/'
+weight = 1
+
+[[menus.main]]
+name = 'words'
+url = '/words/'
+weight = 1
+
+[[menus.main]]
 name = 'talk'
 url = 'mailto:hello@hyl.uk'
-weight = 1
+weight = 3
