@@ -1,5 +1,3 @@
-import './style.scss'
-
 const phrases = [
   "haggard youths languish",
   "hallowed years live",
