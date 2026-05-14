@@ -1,3 +1,12 @@
+const _autoplayMs = (() => {
+  const src = document.currentScript?.src;
+  if (!src) return null;
+  const val = new URL(src).searchParams.get("autoplay");
+  if (val === null) return null;
+  const n = Number(val);
+  return Number.isFinite(n) && n > 0 ? n : 2000;
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   const imageStack = document.createElement("div");
   imageStack.id = "image-stack";
@@ -133,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach((imageName, idx) => {
     const img = document.createElement("img");
-    img.src = `/oak/${imageName}`;
+    img.dataset.src = `/oak/${imageName}`;
 
     const [_, year, month, day, hour, minute, second, ms] =
       imageName.match(fileDateRegex);
@@ -156,24 +165,40 @@ document.addEventListener("DOMContentLoaded", () => {
     prevMMDD = fileMMDD;
   });
 
+  const allImgs = document.querySelectorAll("#image-stack img");
+  let initialIndex;
+
   if (scrollToElement) {
     scrollToElement.scrollIntoView();
+    initialIndex = Number.parseInt(scrollToElement.dataset.index);
   } else {
     // today is past the last image date (end of year), scroll to last
     const triggers = document.querySelectorAll(".scroll-trigger");
     triggers[triggers.length - 1].scrollIntoView();
+    initialIndex = images.length - 1;
   }
 
-  let lastIndex = 0;
+  const loadImg = (i) => {
+    const img = allImgs[i];
+    if (img && !img.getAttribute("src")) img.src = img.dataset.src;
+  };
+
+  loadImg(initialIndex - 1);
+  loadImg(initialIndex);
+  loadImg(initialIndex + 1);
+  allImgs[initialIndex].classList.add("active");
+  let lastIndex = initialIndex;
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const currentIndex = Number.parseInt(entry.target.dataset.index);
-          const allImages = document.querySelectorAll("#image-stack img");
+          loadImg(currentIndex - 1);
+          loadImg(currentIndex);
+          loadImg(currentIndex + 1);
 
-          allImages.forEach((img, i) => {
+          allImgs.forEach((img, i) => {
             if (i === currentIndex) {
               img.classList.add("active");
               img.classList.remove("last-active");
@@ -192,7 +217,16 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.5 },
   );
 
-  document.querySelectorAll(".scroll-trigger").forEach((trigger) => {
+  const allTriggers = document.querySelectorAll(".scroll-trigger");
+  allTriggers.forEach((trigger) => {
     observer.observe(trigger);
   });
+
+  if (_autoplayMs !== null) {
+    let autoIdx = initialIndex;
+    setInterval(() => {
+      autoIdx = (autoIdx + 1) % allTriggers.length;
+      allTriggers[autoIdx].scrollIntoView({ behavior: "instant" });
+    }, _autoplayMs);
+  }
 });
