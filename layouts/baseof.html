@@ -2,9 +2,9 @@
 <html lang="en">
 {{ partial "head.html" . }}
 <body{{ with .Resources.Get .Params.bgimg }} style="background-image: url('{{ .RelPermalink }}');
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: {{ with $.Params.bgpos }}{{ . }}{{ else }}center center{{ end }};" {{ end }}>
+  background-position: {{ replace ($.Params.bgimgfocal | default "center") "-" " " }};" {{ end }}>
   <header>
     <h1></h1>
     <nav id="menu" aria-label="Main menu">
