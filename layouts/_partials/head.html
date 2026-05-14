@@ -8,5 +8,5 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/main.css" />
   {{ with .Params.pagecss }}<style>{{ . | safeCSS }}</style>{{ end }}
-  {{ with .Params.pagecssfile }}<link rel="stylesheet" href="{{ . }}" />{{ end }}
+  {{ with .Resources.Get .Params.pagecssfile }}<link rel="stylesheet" href="{{ .RelPermalink }}" />{{ else }}{{ with $.Params.pagecssfile }}<link rel="stylesheet" href="{{ . }}" />{{ end }}{{ end }}
 </head>

@@ -43,6 +43,10 @@ async function initPhrases(sheetsUrl) {
   animatePhrase();
 }
 
+initPhrases(
+  "https://sheets.googleapis.com/v4/spreadsheets/1x15Rh2slH9Uova6G6kobaPhPlHp8K2rZYExXW9PUV3s/values/Sheet1?key=AIzaSyALHLKON_tJ2Rvxff4jhSgNaxv7b-Qm3B4",
+);
+
 function animatePhrase() {
   const phraseContainers = document.querySelectorAll(".phrase");
   const phrase = phraseContainers[phraseCount % phraseContainers.length];

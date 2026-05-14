@@ -1,7 +1,6 @@
 const _autoplayMs = (() => {
-  const src = document.currentScript?.src;
-  if (!src) return null;
-  const val = new URL(src).searchParams.get("autoplay");
+  const raw = new URL(import.meta.url).search.slice(1);
+  const val = new URLSearchParams(decodeURIComponent(raw)).get("autoplay");
   if (val === null) return null;
   const n = Number(val);
   return Number.isFinite(n) && n > 0 ? n : 2000;
@@ -142,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach((imageName, idx) => {
     const img = document.createElement("img");
-    img.dataset.src = `/oak/${imageName}`;
+    img.dataset.src = `/oak/img/${imageName}`;
 
     const [_, year, month, day, hour, minute, second, ms] =
       imageName.match(fileDateRegex);

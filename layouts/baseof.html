@@ -22,7 +22,7 @@
   <main>{{ block "main" . }}{{ end }}</main>
   <footer></footer>
   <script type="module" src="/js/main.js"></script>
-  {{ with .Params.pagejsfile }}<script src="{{ . }}"></script>{{ end }}
+  {{ with .Resources.Get .Params.pagejsfile }}<script type="module" src="{{ .RelPermalink }}{{ with $.Params.pagejsquery }}?{{ . }}{{ end }}"></script>{{ else }}{{ with $.Params.pagejsfile }}<script type="module" src="{{ . }}{{ with $.Params.pagejsquery }}?{{ . }}{{ end }}"></script>{{ end }}{{ end }}
   {{ with .Params.pagejs }}<script>{{ . | safeJS }}</script>{{ end }}
 </body>
 </html>

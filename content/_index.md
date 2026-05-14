@@ -1,6 +1,6 @@
 ---
 title: hyl.uk
 layout: main
-pagecssfile: /css/oak.css
-pagejsfile: /js/oak.js
+pagecssfile: /oak/oak.css
+pagejsfile: /oak/oak.js
 ---

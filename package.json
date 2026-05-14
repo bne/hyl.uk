@@ -2,8 +2,8 @@
   "name": "hyl.uk",
   "private": true,
   "scripts": {
-    "lint": "biome check static/js static/css",
-    "lint:fix": "biome check --write static/js static/css"
+    "lint": "biome check content static/css",
+    "lint:fix": "biome check --write content static/css"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4"

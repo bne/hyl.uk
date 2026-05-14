@@ -27,7 +27,7 @@ document.addEventListener("readystatechange", (event) => {
     const buggleContainer = document.createElement("div");
     buggleContainer.setAttribute("class", "buggle");
     dice.forEach(() => {
-      dieContainer = document.createElement("span");
+      const dieContainer = document.createElement("span");
       buggleContainer.appendChild(dieContainer);
     });
     document.body.appendChild(buggleContainer);

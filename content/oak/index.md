@@ -1,6 +1,7 @@
 ---
 title: Oak
 layout: main
-pagecssfile: /css/oak.css
-pagejsfile: /js/oak.js?autoplay=200
+pagecssfile: oak.css
+pagejsfile: oak.js
+pagejsquery: autoplay=150
 ---

@@ -108,7 +108,7 @@ const phrases = [
   "how yesterday lingers",
   "how you laughed",
   "how you've lagged",
-  "how you've lamented",
+  "ho you lamented",
   "how you've lapsed",
   "how you've learned",
   "how you've lied",
