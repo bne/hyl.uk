@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 {{ partial "head.html" . }}
-<body>
+<body{{ with .Resources.Get .Params.bgimg }} style="background-image: url('{{ .RelPermalink }}');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: {{ with $.Params.bgpos }}{{ . }}{{ else }}center center{{ end }};" {{ end }}>
   <header>
     <h1></h1>
     <nav id="menu" aria-label="Main menu">
@@ -12,17 +15,23 @@
       </ul>
     </nav>
     <button id="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line class="bar bar-top" x1="3" y1="6" x2="21" y2="6"/>
-        <line class="bar bar-mid" x1="3" y1="12" x2="21" y2="12"/>
-        <line class="bar bar-bot" x1="3" y1="18" x2="21" y2="18"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round">
+        <line class="bar bar-top" x1="3" y1="6" x2="21" y2="6" />
+        <line class="bar bar-mid" x1="3" y1="12" x2="21" y2="12" />
+        <line class="bar bar-bot" x1="3" y1="18" x2="21" y2="18" />
       </svg>
     </button>
   </header>
   <main>{{ block "main" . }}{{ end }}</main>
   <footer></footer>
   <script type="module" src="/js/main.js"></script>
-  {{ with .Resources.Get .Params.pagejsfile }}<script type="module" src="{{ .RelPermalink }}{{ with $.Params.pagejsquery }}?{{ . }}{{ end }}"></script>{{ else }}{{ with $.Params.pagejsfile }}<script type="module" src="{{ . }}{{ with $.Params.pagejsquery }}?{{ . }}{{ end }}"></script>{{ end }}{{ end }}
-  {{ with .Params.pagejs }}<script>{{ . | safeJS }}</script>{{ end }}
-</body>
+  {{ with .Resources.Get .Params.pagejsfile }}
+  <script type="module" src="{{ .RelPermalink }}{{ with $.Params.pagejsquery }}?{{ . }}{{ end }}"></script>{{ else }}{{
+  with $.Params.pagejsfile }}
+  <script type="module" src="{{ . }}{{ with $.Params.pagejsquery }}?{{ . }}{{ end }}"></script>{{ end }}{{ end }}
+  {{ with .Params.pagejs }}
+  <script>{ { . | safeJS } }</script>{{ end }}
+  </body>
+
 </html>
